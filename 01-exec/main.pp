@@ -1,4 +1,4 @@
-exec { 'install_Micro':
-  command => 'apt-get update && apt-get install -y Micro',
-  unless  => 'dpkg -l | grep Micro',
+exec { 'install_fish':
+  command => 'apt update && apt install -y fish',
+  unless  => 'dpkg -l | grep fish',
 }
