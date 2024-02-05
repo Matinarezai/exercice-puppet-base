@@ -5,6 +5,6 @@ user { 'c2c':
   gid        => '1001', 
   home       => '/home/c2c',  
   shell      => '/bin/bash',
-  managehome => true,
+  managehome => true
 }
 
