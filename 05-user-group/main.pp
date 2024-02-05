@@ -1,5 +1,5 @@
 class user_group {
-  $password = file('/path/to/password.txt')
+  $plaintext_password = 'qwertz'
 
   group { 'c2c':
     ensure => 'present',
@@ -8,7 +8,7 @@ class user_group {
 
   user { 'c2c':
     ensure     => 'present',
-    password   => $password,
+    password   => $plaintext_password,
     uid        => 1001,
     gid        => 'c2c',
     home       => '/home/c2c',
