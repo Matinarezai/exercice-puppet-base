@@ -1,19 +1,13 @@
-class user_group {
-  $plaintext_password = 'qwertz'
-
-  group { 'c2c':
-    ensure => 'present',
-    gid    => 1001,
-  }
-
-  user { 'c2c':
-    ensure     => 'present',
-    password   => $plaintext_password,
-    uid        => 1001,
-    gid        => 'c2c',
-    home       => '/home/c2c',
-    shell      => '/bin/bash',
-    managehome => true,
-  }
+# Définition de l'utilisateur
+user { 'nom_utilisateur':
+  ensure     => 'present',     # Assure que l'utilisateur existe
+  managehome => true,          # Gère également le répertoire personnel de l'utilisateur
+  uid        => '1001',        # UID de l'utilisateur
+  gid        => 'users',       # GID de l'utilisateur (groupe)
+  home       => '/home/nom_utilisateur',  # Chemin du répertoire personnel
+  shell      => '/bin/bash',    # Shell de l'utilisateur
+  password   => '$1$abcd1234$56789',  # Mot de passe chiffré (utilisez 'openssl passwd -1' pour générer)
 }
+
+# Vous pouvez également ajouter d'autres configurations ou exécutions de commandes en fonction de vos besoins.
 
